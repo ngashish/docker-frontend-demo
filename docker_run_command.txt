@@ -1,0 +1,8 @@
+ sudo docker run -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app 7d80051395dc
+
+ for prod build we need make docker file with 2 stages
+
+ 1.build 
+ 2.copy build file and pass it to nginx
+
+ 
