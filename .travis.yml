@@ -1,4 +1,7 @@
 sudo: required
+
+language: generic
+
 services: 
   - docker
 
@@ -10,15 +13,16 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "ca-central-1"
+  region: ca-central-1
   app: "docker-react"
   env: "Dockerreact-env"
-  bucket_name: "elasticbeanstalk-ca-central-1-807664477551"
+  bucket_name: "docker-travis-bucket"
   bucket_path: "docker-react"
+  
+  access_key_id:  $AWS_ACCESS_KEY
+  secret_access_key:  
+    secure: $SECRET_ACCESS_KEY
+  
   on:
     branch: main
-  access_key_id:  "$AWS_ACCESS_KEY"
-  secret_access_key:  
-    secure: "$SECRET_ACCESS_KEY"
-
 
