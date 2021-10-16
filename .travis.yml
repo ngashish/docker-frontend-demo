@@ -7,9 +7,7 @@ services:
 
 before_install:
   - docker build -t reactdemoapp -f Dockerfile.dev . 
-  
-script:
-  - docker run reactdemoapp npm run test -- --coverage
+
 
 deploy:
   provider: elasticbeanstalk
